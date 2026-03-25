@@ -151,7 +151,7 @@ if uploaded_files:
         # -----------------------
         # 📄 SHEET 2
         # -----------------------
-        sheet2 = df_processed.groupby("COO").agg({
+        sheet2 = df_processed.groupby(["HS Code", "COO"]).agg({
             "QTY": "sum",
             "Amount": "sum",
             "GW": "sum",
@@ -161,7 +161,7 @@ if uploaded_files:
         sheet2["Description"] = "Auto Spare Parts"
 
         sheet2 = sheet2[
-            ["COO", "Description", "QTY", "Amount", "GW", "NW"]
+            ["HS Code","COO", "Description", "QTY", "Amount", "GW", "NW"]
         ]
 
         # -----------------------
